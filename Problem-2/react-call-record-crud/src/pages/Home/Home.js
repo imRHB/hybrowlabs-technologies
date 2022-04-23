@@ -3,23 +3,29 @@ import './Home.css';
 
 const Home = () => {
     const [peoples, setPeoples] = useState([]);
-    // const [randomPeople, setRandomPeople] = useState('');
+    const [error, setError] = useState('');
 
     const randomPeopleGenerator = () => {
         const randomNum = Math.random();
         const random = Math.floor(randomNum * 100);
-
         return random;
     };
 
     const handleAddNewRecord = () => {
         const randomPeople = randomPeopleGenerator();
-        // console.log(randomPeople);
 
         fetch(`https://swapi.dev/api/people/${randomPeople}`)
             .then(res => res.json())
             .then(data => {
-                setPeoples(newArr => [...newArr, data]);
+                if (data.detail === 'Not found') {
+                    setError('URL not found');
+                    return;
+                }
+
+                else {
+                    setError('');
+                    setPeoples(newArr => [...newArr, data]);
+                }
             });
     };
 
@@ -34,7 +40,7 @@ const Home = () => {
             <div>
                 <button
                     onClick={handleAddNewRecord}
-                    className="btn btn-add-record"
+                    className="btn btn-add"
                 >ADD RECORD</button>
             </div>
 
@@ -44,6 +50,10 @@ const Home = () => {
                 </div>
                     :
                     <div className="record-table">
+                        <div className="error">
+                            <p>{error}</p>
+                        </div>
+
                         <table style={{ width: '360px' }}>
                             <thead>
                                 <tr>
