@@ -36,6 +36,19 @@ body {
     background-color: #ddd;
 }
 
+.try {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+    padding: 0 2px;
+}
+
+.try:hover {
+    text-decoration: none;
+    background-color: gray;
+    color: #fff;
+}
+
 table,
 th,
 td {

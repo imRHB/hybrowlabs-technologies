@@ -51,7 +51,9 @@ const Home = () => {
                     :
                     <div className="record-table">
                         <div className="error">
-                            <p>{error}</p>
+                            {
+                                error && <p>{error}, <span className="try" onClick={handleAddNewRecord}>try another one</span></p>
+                            }
                         </div>
 
                         <table style={{ width: '360px' }}>
