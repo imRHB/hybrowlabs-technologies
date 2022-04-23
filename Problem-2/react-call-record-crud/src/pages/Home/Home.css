@@ -1,0 +1,26 @@
+body {
+    margin: 2rem 2rem;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.btn {
+    margin: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.record-table {
+    margin: 2em 0px;
+}
+
+table,
+th,
+td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
