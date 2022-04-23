@@ -9,7 +9,6 @@ body {
 }
 
 .btn {
-    margin: 4px;
     padding: 4px 8px;
     cursor: pointer;
     color: #fff;
@@ -28,6 +27,10 @@ body {
 
 .record-table {
     margin: 2em 0px;
+}
+
+.error-sec {
+    height: 30px;
 }
 
 .error {

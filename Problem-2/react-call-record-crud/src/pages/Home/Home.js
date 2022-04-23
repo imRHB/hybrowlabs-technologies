@@ -50,10 +50,14 @@ const Home = () => {
                 </div>
                     :
                     <div className="record-table">
-                        <div className="error">
-                            {
-                                error && <p>{error}, <span className="try" onClick={handleAddNewRecord}>try another one</span></p>
-                            }
+                        <h3>Records found: {peoples.length}</h3>
+
+                        <div className="error-sec">
+                            <div className="error">
+                                {
+                                    error ? <p>{error}, <span className="try" onClick={handleAddNewRecord}>try another one</span></p> : ''
+                                }
+                            </div>
                         </div>
 
                         <table style={{ width: '360px' }}>
@@ -66,8 +70,8 @@ const Home = () => {
 
                             <tbody>
                                 {
-                                    peoples.map(people => <tr
-                                        key={people.name}
+                                    peoples.map((people, idx) => <tr
+                                        key={idx}
                                     >
                                         <td>{people?.name}</td>
                                         <td style={{ textAlign: 'center' }}>
